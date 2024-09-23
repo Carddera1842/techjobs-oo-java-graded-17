@@ -42,4 +42,5 @@ public class JobTest {
         assertTrue(!job1.equals(job2));
     }
 
+
 }
