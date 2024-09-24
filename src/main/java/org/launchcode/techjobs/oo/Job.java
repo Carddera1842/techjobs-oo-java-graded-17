@@ -97,7 +97,7 @@ public class Job {
 
     @Override
     public String toString() {
-        String newLine = System.lineSeparator();
+        //String newLine = System.lineSeparator();
 
         if (name.isBlank() && employer.toString().isBlank() && location.toString().isBlank() && positionType.toString().isBlank() && coreCompetency.toString().isBlank()) {
             return "OOPS! This job does not seem to exist.";
@@ -118,14 +118,14 @@ public class Job {
             getCoreCompetency().setValue("Data not available");
         }
 
-        return newLine +
-                "ID: " + getId() + "\r\n" +
-                "Name: " + getName() + "\r\n" +
-                "Employer: " + getEmployer() + "\r\n" +
-                "Location: " + getLocation() + "\r\n" +
-                "Position Type: " + getPositionType() + "\r\n" +
+        return System.lineSeparator() +
+                "ID: " + getId() + System.lineSeparator() +
+                "Name: " + getName() + System.lineSeparator() +
+                "Employer: " + getEmployer() + System.lineSeparator() +
+                "Location: " + getLocation() + System.lineSeparator() +
+                "Position Type: " + getPositionType() + System.lineSeparator() +
                 "Core Competency: " + getCoreCompetency() +
-                newLine;
+                System.lineSeparator();
     }
 
 }
