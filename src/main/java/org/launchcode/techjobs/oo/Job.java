@@ -38,12 +38,12 @@ public class Job {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Job job)) return false;
-        return id == job.id && Objects.equals(name, job.name) && Objects.equals(employer, job.employer) && Objects.equals(location, job.location) && Objects.equals(positionType, job.positionType) && Objects.equals(coreCompetency, job.coreCompetency);
+        return id == job.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, employer, location, positionType, coreCompetency);
+        return Objects.hashCode(id);
     }
 
 
@@ -94,4 +94,38 @@ public class Job {
     public int getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        String newLine = System.lineSeparator();
+
+        if (name.isBlank() && employer.toString().isBlank() && location.toString().isBlank() && positionType.toString().isBlank() && coreCompetency.toString().isBlank()) {
+            return "OOPS! This job does not seem to exist.";
+        }
+        if (name.isBlank()) {
+            setName("Data not available");
+        }
+        if (employer.toString().isBlank()) {
+            getEmployer().setValue("Data not available");
+        }
+        if (location.toString().isBlank()) {
+            getLocation().setValue("Data not available");
+        }
+        if (positionType.toString().isBlank()) {
+            getPositionType().setValue("Data not available");
+        }
+        if (coreCompetency.toString().isBlank()) {
+            getCoreCompetency().setValue("Data not available");
+        }
+
+        return newLine +
+                "ID: " + getId() + "\r\n" +
+                "Name: " + getName() + "\r\n" +
+                "Employer: " + getEmployer() + "\r\n" +
+                "Location: " + getLocation() + "\r\n" +
+                "Position Type: " + getPositionType() + "\r\n" +
+                "Core Competency: " + getCoreCompetency() +
+                newLine;
+    }
+
 }
