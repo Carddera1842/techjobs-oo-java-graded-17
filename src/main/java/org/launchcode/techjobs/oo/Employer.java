@@ -8,9 +8,4 @@ public class Employer extends JobField{
         super(value);
     }
 
-    @Override
-    public String toString() {
-        return getValue();
-    }
-
 }

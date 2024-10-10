@@ -8,8 +8,4 @@ public class CoreCompetency extends JobField{
         super(value);
     }
 
-    @Override
-    public String toString() {
-        return getValue();
-    }
 }

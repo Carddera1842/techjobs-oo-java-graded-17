@@ -29,8 +29,6 @@ public abstract class JobField {
         this.value = value;
     }
 
-    public abstract String toString();
-
     @Override
     public boolean equals(Object o) {  // Two objects are equal if they have the same id.
         if (this == o) return true;
@@ -42,6 +40,11 @@ public abstract class JobField {
     @Override
     public int hashCode() {
         return Objects.hash(getId());
+    }
+
+    @Override
+    public String toString() {
+        return getValue();
     }
 
 }

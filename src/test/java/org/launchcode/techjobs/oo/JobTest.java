@@ -21,25 +21,30 @@ public class JobTest {
 
         assertEquals(job1.getName(), "Product tester");
         assertTrue(job1.getName() instanceof String);
+        assertFalse(job1.getName().equals(null));
 
         assertEquals(job1.getEmployer().getValue(), "ACME");
         assertTrue(job1.getEmployer() instanceof Employer);
+        assertFalse(job1.getEmployer().equals(null));
 
         assertEquals(job1.getLocation().getValue(), "Desert");
         assertTrue(job1.getLocation() instanceof Location);
+        assertFalse(job1.getName().equals(null));
 
         assertEquals(job1.getPositionType().getValue(), "Quality control");
         assertTrue(job1.getPositionType() instanceof PositionType);
+        assertFalse(job1.getPositionType().equals(null));
 
         assertEquals(job1.getCoreCompetency().getValue(), "Persistence");
         assertTrue(job1.getCoreCompetency() instanceof CoreCompetency);
+        assertFalse(job1.getCoreCompetency().equals(null));
     }
 
     @Test
     public void testJobsForEquality() {
         Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         Job job2 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertTrue(!job1.equals(job2));
+        assertFalse(job1.equals(job2));
     }
 
     @Test
@@ -53,11 +58,16 @@ public class JobTest {
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
         Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals(job1.getName(), "Product tester");
-        assertEquals(job1.getEmployer().toString(), "ACME");
-        assertEquals(job1.getLocation().toString(), "Desert");
-        assertEquals(job1.getPositionType().toString(), "Quality control");
-        assertEquals(job1.getCoreCompetency().toString(), "Persistence");
+        String testLabelsAndData =
+                System.lineSeparator() +
+                "ID: " + job1.getId() + System.lineSeparator() +
+                "Name: " + job1.getName() + System.lineSeparator() +
+                "Employer: " + job1.getEmployer() + System.lineSeparator() +
+                "Location: " + job1.getLocation() + System.lineSeparator() +
+                "Position Type: " + job1.getPositionType() + System.lineSeparator() +
+                "Core Competency: " + job1.getCoreCompetency() +
+                System.lineSeparator();
+        assertEquals(testLabelsAndData, job1.toString());
     }
 
     @Test
