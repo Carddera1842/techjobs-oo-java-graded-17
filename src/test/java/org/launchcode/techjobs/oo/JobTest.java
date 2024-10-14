@@ -61,11 +61,11 @@ public class JobTest {
         String testLabelsAndData =
                 System.lineSeparator() +
                 "ID: " + job1.getId() + System.lineSeparator() +
-                "Name: " + job1.getName() + System.lineSeparator() +
-                "Employer: " + job1.getEmployer() + System.lineSeparator() +
-                "Location: " + job1.getLocation() + System.lineSeparator() +
-                "Position Type: " + job1.getPositionType() + System.lineSeparator() +
-                "Core Competency: " + job1.getCoreCompetency() +
+                "Name: Product tester" + System.lineSeparator() +
+                "Employer: ACME" + System.lineSeparator() +
+                "Location: Desert" + System.lineSeparator() +
+                "Position Type: Quality control" + System.lineSeparator() +
+                "Core Competency: Persistence" +
                 System.lineSeparator();
         assertEquals(testLabelsAndData, job1.toString());
     }
